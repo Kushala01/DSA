@@ -35,3 +35,5 @@ int main(){
     cout << "The answer is: " << ans << "\n";
     return 0;
 }
+//TC=O(logN)
+//SC=O(1)
