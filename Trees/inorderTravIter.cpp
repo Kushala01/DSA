@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 struct node {
@@ -53,7 +54,8 @@ int main() {
   preOrder = preOrderTrav(root);
 
   cout << "The preOrder Traversal is : ";
-  for (int i = 0; i < preOrder.size(); i++)
+  for (int i = 0; i < preOrder.size(); i++) {
     cout << preOrder[i] << " ";
+  }
   return 0;
 }
