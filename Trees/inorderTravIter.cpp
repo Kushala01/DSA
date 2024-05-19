@@ -11,7 +11,7 @@ vector < int > preOrderTrav(node * curr) {
   if (curr == NULL)
     return preOrder;
 
-  stack < node * > s;
+  stack <node *>s;
   s.push(curr);
 
   while (!s.empty()) {
@@ -24,7 +24,6 @@ vector < int > preOrderTrav(node * curr) {
       s.push(topNode -> left);
   }
   return preOrder;
-
 }
 
 struct node * newNode(int data) {
