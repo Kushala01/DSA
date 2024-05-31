@@ -3,36 +3,50 @@ using namespace std;
 
 int orangesRotting(vector<vector<int>>& grid) {
     if(grid.empty()) return 0;
-    int m = grid.size(), n = grid[0].size(), days = 0, tot = 0, cnt = 0;
-    queue<pair<int, int>> rotten;
-    for(int i = 0; i < m; ++i){
-        for(int j = 0; j < n; ++j){
-            if(grid[i][j] != 0) tot++;
-            if(grid[i][j] == 2) rotten.push({i, j});
+    
+    int rows = grid.size(), cols = grid[0].size();
+    int days = 0, totalOranges = 0, rottenOrangesCount = 0;
+    
+    queue<pair<int, int>> rottenQueue;
+    
+    // Count total oranges and enqueue initial rotten oranges
+    for(int i = 0; i < rows; ++i){
+        for(int j = 0; j < cols; ++j){
+            if(grid[i][j] != 0) totalOranges++;
+            if(grid[i][j] == 2) rottenQueue.push({i, j});
         }
     }
-        
+    
     int dx[4] = {0, 0, 1, -1};
     int dy[4] = {1, -1, 0, 0};
+    
+    // BFS to spread rot to adjacent fresh oranges
+    while(!rottenQueue.empty()){
+        int currentLevelSize = rottenQueue.size();
+        rottenOrangesCount += currentLevelSize;
         
-    while(!rotten.empty()){
-        int k = rotten.size();
-        cnt += k;
-        while(k--){
-            int x = rotten.front().first, y = rotten.front().second;
-            rotten.pop();
+        while(currentLevelSize--){
+            int x = rottenQueue.front().first, y = rottenQueue.front().second;
+            rottenQueue.pop();
+            
             for(int i = 0; i < 4; ++i){
                 int nx = x + dx[i], ny = y + dy[i];
-                if(nx < 0 || ny < 0 || nx >= m || ny >= n || grid[nx][ny] != 1) continue;
+                if(nx < 0 || ny < 0 || nx >= rows || ny >= cols || grid[nx][ny] != 1) continue;
                 grid[nx][ny] = 2;
-                rotten.push({nx, ny});
+                rottenQueue.push({nx, ny});
             }
-        }if(!rotten.empty()) days++;
-    }return tot == cnt ? days : -1;
+        }
+        
+        if(!rottenQueue.empty()) days++;
+    }
+    
+    return totalOranges == rottenOrangesCount ? days : -1;
 }
 
-int main(){
-    vector<vector<int>> v{ {2,1,1} , {1,1,0} , {0,1,1} } ;
-    int rotting = orangesRotting(v);
-    cout<<"Minimum Number of Minutes Required "<<rotting<<endl;
+int main()
+{
+    vector<vector<int>> grid { {2,1,1} , {1,1,0} , {0,1,1} };
+    int result = orangesRotting(grid);
+    cout << "Minimum Number of Minutes Required: " << result << endl;
+    return 0;
 }

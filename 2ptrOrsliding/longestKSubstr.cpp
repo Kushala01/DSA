@@ -1,24 +1,38 @@
 #include <iostream>
+#include <unordered_map>
 using namespace std;
 
-int longestKSubstr(string s, int k){
-      int i = 0,j = 0;
-      unordered_map<char,int> mpp;
-      int ans = -1;
-      while(j<s.size()){
-          mpp[s[j]]++;
-          if(mpp.size()<k){
-            j++;
-          }else if(mpp.size()==k){
-              ans = max(ans,j-i+1);
-              j++;
-          }else{
-              while(mpp.size()>k){
-                mpp[s[i]]--;
-                if(mpp[s[i]]==0){
-                      mpp.erase(s[i]);
-                }i++;
-              }j++;
-          }
-      }return ans;
+int longestSubstringWithKDistinctCharacters(string s, int k) {
+    int start = 0, end = 0;
+    unordered_map<char, int> charFrequency;
+    int maxLength = -1;
+
+    while (end < s.size()) {
+        charFrequency[s[end]]++;
+
+        if (charFrequency.size() < k) {
+            end++;
+        } else if (charFrequency.size() == k) {
+            maxLength = max(maxLength, end - start + 1);
+            end++;
+        } else {
+            while (charFrequency.size() > k) {
+                charFrequency[s[start]]--;
+                if (charFrequency[s[start]] == 0) {
+                    charFrequency.erase(s[start]);
+                }
+                start++;
+            }
+            end++;
+        }
+    }
+    return maxLength;
+}
+
+int main() {
+    string input = "araaci";
+    int k = 2;
+    cout << "The length of the longest substring with " << k << " distinct characters is " 
+         << longestSubstringWithKDistinctCharacters(input, k);
+    return 0;
 }
