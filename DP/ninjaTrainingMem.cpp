@@ -33,3 +33,5 @@ int main() {
   int n = points.size();
   cout << ninjaTraining(n, points);
 }
+//Time Complexity: O(N*4*3)
+//Space Complexity: O(N) + O(N*4)
