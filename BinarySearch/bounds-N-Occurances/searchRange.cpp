@@ -29,3 +29,12 @@ class Solution {
             return {firstOcc(nums , target) , lastOcc(nums , target)};
         }
     };
+//Time Complexity: O(2*logN)
+//Space Complexity: O(1)
+
+/*to count the number of occurances
+int count(vector<int>& arr, int n, int x) {
+    pair<int, int> ans = firstAndLastPosition(arr, n, x);
+    if (ans.first == -1) return 0;
+    return (ans.second - ans.first + 1);
+}*/
