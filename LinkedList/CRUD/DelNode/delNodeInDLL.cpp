@@ -15,7 +15,6 @@ struct Node
 class Solution {
   public:
     Node* deleteNode(Node* head, int x) {
-        // Your code here
          if (head == NULL) return head;
 
         Node* temp = head;
