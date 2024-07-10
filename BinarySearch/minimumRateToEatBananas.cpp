@@ -23,7 +23,6 @@ int calculateTotalHours(vector<int> &v, int hourly) {
 
 int minimumRateToEatBananas(vector<int> v, int h) {
     int low = 1, high = findMax(v);
-
     //apply binary search:
     while (low <= high) {
         int mid = (low + high) / 2;
@@ -45,3 +44,5 @@ int main(){
     cout << "Koko should eat atleast " << ans << " bananas/hr.\n";
     return 0;
 }
+//Time Complexity: O(N * log(max(a[])))
+//Space Complexity: O(1)
