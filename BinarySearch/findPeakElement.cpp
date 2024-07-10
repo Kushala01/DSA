@@ -2,7 +2,7 @@
 using namespace std;
 
 int findPeakElement(vector<int> &arr) {
-    int n = arr.size(); //Size of array.
+    int n = arr.size();
 
     // Edge cases:
     if (n == 1) return 0;
