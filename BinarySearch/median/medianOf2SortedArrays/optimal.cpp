@@ -32,3 +32,5 @@ int main() {
     vector<int> b = {2, 3, 6, 15};
     cout << "The median of two sorted arrays is " << fixed << setprecision(1) << median(a, b) << '\n';
 }
+//Time Complexity: O(log(min(n1,n2)))
+//Space Complexity: O(1)
