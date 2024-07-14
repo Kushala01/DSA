@@ -2,15 +2,14 @@
 using namespace std;
 
 int countStudents(vector<int> &arr, int pages) {
-    int n = arr.size(); //size of array.
+    int n = arr.size(); 
     int students = 1;
     long long pagesStudent = 0;
     for (int i = 0; i < n; i++) {
         if (pagesStudent + arr[i] <= pages) {
-            //add pages to current student
             pagesStudent += arr[i];
         }
-        else {//add pages to next student
+        else {
             students++;
             pagesStudent = arr[i];
         }
@@ -19,11 +18,11 @@ int countStudents(vector<int> &arr, int pages) {
 }
 
 int findPages(vector<int>& arr, int n, int m) {
-    //book allocation impossible:
     if (m > n) return -1;
 
     int low = *max_element(arr.begin(), arr.end());
     int high = accumulate(arr.begin(), arr.end(), 0);
+    int result = -1;
     while (low <= high) {
         int mid = (low + high) / 2;
         int students = countStudents(arr, mid);
@@ -32,9 +31,10 @@ int findPages(vector<int>& arr, int n, int m) {
         }
         else {
             high = mid - 1;
+            result = mid;
         }
     }
-    return low;
+    return result;
 }
 
 int main(){
@@ -45,3 +45,5 @@ int main(){
     cout << "The answer is: " << ans << "\n";
     return 0;
 }
+//Time Complexity: O(N * log(sum(arr[])-max(arr[])+1))
+//Space Complexity:  O(1)
