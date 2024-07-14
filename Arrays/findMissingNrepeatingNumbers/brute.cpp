@@ -19,8 +19,7 @@ vector<int> findMissingRepeatingNumbers(vector<int> a) {
     return {repeating, missing};
 }
 
-int main()
-{
+int main(){
     vector<int> a = {3, 1, 2, 5, 4, 6, 7, 5};
     vector<int> ans = findMissingRepeatingNumbers(a);
     cout << "The repeating and missing numbers are: {"
