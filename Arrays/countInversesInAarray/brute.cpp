@@ -2,7 +2,6 @@
 using namespace std;
 
 int numberOfInversions(vector<int>&a, int n) {
-
     // Count the number of pairs:
     int cnt = 0;
     for (int i = 0; i < n; i++) {
@@ -13,8 +12,7 @@ int numberOfInversions(vector<int>&a, int n) {
     return cnt;
 }
 
-int main()
-{
+int main(){
     vector<int> a = {5, 4, 3, 2, 1};
     int n = 5;
     int cnt = numberOfInversions(a, n);
