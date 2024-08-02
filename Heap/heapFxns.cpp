@@ -74,6 +74,5 @@ int main() {
             deleteMin();
         }
     }
-
     return 0;
 }
