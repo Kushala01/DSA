@@ -58,3 +58,11 @@ int main(){
     cout<<"the resultant is "<<result<<endl;
     return 0;
 }
+/*Time Complexity:
+The initialization of the priority queues takes O(klogk).
+Each insertion and extraction from the priority queue takes O(logk).
+The loop runs teamSize times.
+So, the overall time complexity is O((k+teamSize)logk).
+
+Space Complexity:
+The space complexity is O(k) due to the two priority queues.*/
