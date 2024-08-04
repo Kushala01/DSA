@@ -33,7 +33,6 @@ int deployFamilyMembers(priority_queue<pair<int, int>, vector<pair<int, int>>, g
             usedPositions[position] = 1;
         }
     }
-
     return totalDistance;
 }
 
@@ -52,4 +51,5 @@ int main() {
     cout << "Total minimum distance: " << result << endl;
 
     return 0;
-}
+}//could be solved using binary search also
+//TC - O(N*logN) 
