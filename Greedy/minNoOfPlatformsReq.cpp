@@ -12,8 +12,7 @@
         if(arr[i]<=dep[j]){
             count++;
             i++;
-        }
-        else{
+        }else{
             count--;
             j++;
         }
@@ -28,3 +27,5 @@
     int n=sizeof(dep)/sizeof(dep[0]);
     cout<<"Minimum number of Platforms required "<<countPlatforms(n,arr,dep)<<endl;
  }
+//Time Complexity: O(nlogn) Sorting takes O(nlogn) and traversal of arrays takes O(n) so overall time complexity is O(nlogn).
+//Space complexity: O(1)  (No extra space used).
