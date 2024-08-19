@@ -36,8 +36,7 @@ int roseGarden(vector<int> arr, int k, int m) {
     return -1;
 }
 
-int main()
-{
+int main(){
     vector<int> arr = {7, 7, 7, 7, 13, 11, 12, 7};
     int k = 3;
     int m = 2;

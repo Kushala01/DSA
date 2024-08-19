@@ -19,8 +19,7 @@ int smallestDivisor(vector<int>& arr, int limit) {
     return -1;
 }
 
-int main()
-{
+int main(){
     vector<int> arr = {1, 2, 3, 4, 5};
     int limit = 8;
     int ans = smallestDivisor(arr, limit);
